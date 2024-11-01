@@ -392,13 +392,13 @@ $kname的好感度增加，现在为：$knameAffinity
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="19" name="结尾" tags="" position="375,1575" size="100,100">游乐园之旅总是让人开心！还剩下一点时间，你想和谁一起度过？
 
-&lt;&lt;if $tnameAffinity == 3&gt;&gt;
+&lt;&lt;if $tnameAffinity &gt;= 3&gt;&gt;
 [[提瑞尔|提瑞尔]]
-&lt;&lt;elseif $lnameAffinity == 3 &gt;&gt;
+&lt;&lt;elseif $lnameAffinity &gt;= 3 &gt;&gt;
 [[路西恩|路西恩]]
-&lt;&lt;elseif $knameAffinity == 2&gt;&gt;
+&lt;&lt;elseif $knameAffinity &gt;= 2&gt;&gt;
 [[克莱奥斯|克莱奥斯]]
-&lt;&lt;elseif $znameAffinity == 2&gt;&gt;
+&lt;&lt;elseif $znameAffinity &gt;= 2&gt;&gt;
 [[泽恩|泽恩]]
 &lt;&lt;else&gt;&gt;
 [[还是回家吧|初始]]
