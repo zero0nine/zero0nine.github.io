@@ -392,13 +392,13 @@ $kname的好感度增加，现在为：$knameAffinity
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="19" name="结尾" tags="" position="375,1575" size="100,100">游乐园之旅总是让人开心！还剩下一点时间，你想和谁一起度过？
 
-&lt;&lt;if $tnameAffinity == 3 &amp;&amp; facility==&quot;惊魂古塔&quot;&gt;&gt;
+&lt;&lt;if $tnameAffinity == 3&gt;&gt;
 [[提瑞尔|提瑞尔]]
-&lt;&lt;elseif $lnameAffinity == 3 &amp;&amp; facility==&quot;米奇的魔法音乐世界&quot;&gt;&gt;
+&lt;&lt;elseif $lnameAffinity == 3 &gt;&gt;
 [[路西恩|路西恩]]
 &lt;&lt;elseif $knameAffinity == 2&gt;&gt;
 [[克莱奥斯|克莱奥斯]]
-&lt;&lt;elseif $znameAffinity == 2 &amp;&amp; facility==&quot;地心探险之旅&quot;&gt;&gt;
+&lt;&lt;elseif $znameAffinity == 2&gt;&gt;
 [[泽恩|泽恩]]
 &lt;&lt;else&gt;&gt;
 [[还是回家吧|初始]]
@@ -751,7 +751,7 @@ $kname的好感度增加，现在为：$knameAffinity
 &lt;&lt;/linkreplace&gt;&gt; 
 
 </tw-passagedata><tw-passagedata pid="40" name="菜单" tags="" position="1000,1500" size="100,100">&lt;&lt;set _suiji to random(1,10)&gt;&gt;
-&lt;&lt;if _suiji lte 4&gt;&gt;  
+&lt;&lt;if _suiji &lt;= 4&gt;&gt;  
 
 [[草莓和生奶油搭配可爱的薄饼|草莓和生奶油搭配可爱的薄饼]] 
 [[黑糖&amp;抹茶&amp;鲜奶油|黑糖&amp;抹茶&amp;鲜奶油]]
