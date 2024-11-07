@@ -215,8 +215,10 @@ Macro.add('speech', {
 [[王宫][$minute+=30]]
 [[酒吧][$minute+=30]]
 
-&lt;&lt;if $tnameAffinity &gt;= 3 &amp;&amp; $knameAffinity &gt;= 3 &amp;&amp; $lnameAffinity &gt;= 3 &amp;&amp; $znameAffinity &gt;= 3&gt;&gt;
 [[出去玩|出去玩]]
+
+&lt;&lt;if $tnameAffinity &gt;= 3 &amp;&amp; $knameAffinity &gt;= 3 &amp;&amp; $lnameAffinity &gt;= 3 &amp;&amp; $znameAffinity &gt;= 3&gt;&gt;
+
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="2" name="训练场" tags="" position="825,900" size="100,100">&lt;&lt;if $day &gt; 1 &gt;&gt;
@@ -275,7 +277,7 @@ Macro.add('speech', {
  &lt;&lt;set $minute to $minute + 30&gt;&gt;
  [[回家|初始]] 
 
-&lt;&lt;elseif $hour &gt;= 17 and $hour &lt; 20 and $knameAffinity == 1 and $barVisits !==&quot;ok&quot;&gt;&gt;
+&lt;&lt;elseif $hour &gt;= 17 and $hour &lt; 20 and $knameAffinity == 1 and $barVisits !==&quot;ok&quot;and  $photo== &quot;no&quot;&gt;&gt; &gt;&gt;
  &lt;!-- 17点-20点，克莱奥斯好感度为1，触发兰登三人事件 --&gt;
 你推开沉重的木门，夜幕已经降临，酒馆内暧昧的灯光照亮了四周。
 
@@ -355,8 +357,8 @@ Macro.add('speech', {
 &lt;&lt;set $znameAffinity to 0&gt;&gt; 泽恩的初始好感度为 0
 
 地点判定
-&lt;&lt;set $barVisits = &quot;no&quot;&gt;&gt;未在酒吧触发剧情
-
+&lt;&lt;set $barVisits == &quot;no&quot;&gt;&gt;克酒吧事件未开启
+&lt;&lt;set $photo==&quot;no&quot;&gt;&gt; 未触发下属组对话
 
 
 好感体现 
@@ -1047,7 +1049,7 @@ $kname的好感度增加，现在为：$knameAffinity
 你站起身，朝他们挥了挥手，目送他们走出酒馆。外面的夜风带来些许凉意，而你依然没能完全摆脱心中的疑虑。
 
 尽管如此，眼下没有更多线索，你只好暂时将这件事放在心底，打算以后再做打算。
- &lt;&lt;set $minute to $minute + 30&gt;&gt;
+ &lt;&lt;set $minute to $minute + 30&gt;&gt;&lt;&lt;set $photo==&quot;yes&quot;&gt;&gt;
 [[回家|初始]]
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
