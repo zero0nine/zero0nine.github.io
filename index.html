@@ -319,7 +319,7 @@ Macro.add('speech', {
    &lt;&lt;set $minute to $minute + 30&gt;&gt;
 [[回家|初始]] 
 &lt;&lt;endif&gt;&gt;
-</tw-passagedata><tw-passagedata pid="5" name="出去玩" tags="" position="700,900" size="100,100">出于各种原因，你和提瑞尔、克莱奥斯、泽恩、路西恩四人决定一起去迪士尼游玩。
+</tw-passagedata><tw-passagedata pid="5" name="出去玩" tags="" position="700,900" size="100,100">出于各种原因，你和$tname、$kname、$zname、$lname四人决定一起去迪士尼游玩。
 
 在车上，
 
@@ -418,18 +418,20 @@ $lname的好感度增加，现在为：$lnameAffinity
 &lt;&lt;set $tnameAffinity to $tnameAffinity + 1&gt;&gt;  
 提瑞尔的好感度增加，现在为：$tnameAffinity
 
- 提瑞尔决定带你去最刺激的游乐设施。接下来你们决定要去：
+ $tname决定带你去最刺激的游乐设施。接下来你们决定要去：
+ 
  [[惊魂古塔]]  &lt;&lt;set $facility is &quot;惊魂古塔&quot;&gt;&gt;
  [[地心探险之旅]] &lt;&lt;set $facility is &quot;地心探险之旅&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="更休闲的路线" tags="" position="600,1400" size="100,100">你赞同了$lname的提议！$lname很高兴，兴奋地向你讲解接下来的路线规划。
 $lname温和地说：“我们可以悠闲地逛逛，不必着急。”他挠了挠后脑勺，略显害羞，眼神却始终带着关怀。
 &lt;&lt;set $lnameAffinity to $lnameAffinity + 1&gt;&gt;  
 路西恩的好感度增加，现在为：$lnameAffinity
 
-路西恩提议选择一些轻松的项目作为开始。接下来你们决定要去：
+$lname提议选择一些轻松的项目作为开始。接下来你们决定要去：
+
  [[米奇的魔法音乐世界]]  
  [[西部小火车]]</tw-passagedata><tw-passagedata pid="13" name="米奇的魔法音乐世界" tags="" position="500,1525" size="100,100">&lt;&lt;set $facility to &quot;米奇的魔法音乐世界&quot;&gt;&gt;
 &lt;&lt;if $facility == &quot;米奇的魔法音乐世界&quot; and $lnameAffinity ==2 &gt;&gt;
-    路西恩的脸上绽放出温暖的微笑：“这个地方真的很特别，能跟你一起体验真好。”他的声音温柔而轻松，透着满满的喜悦。
+    $lname的脸上绽放出温暖的微笑：“这个地方真的很特别，能跟你一起体验真好。”他的声音温柔而轻松，透着满满的喜悦。
 &lt;&lt;/if&gt;&gt;
 
 你和$lname玩得十分开心。  &lt;&lt;set $lnameAffinity to $lnameAffinity + 1&gt;&gt;
@@ -440,7 +442,7 @@ $lname的好感度增加，现在为：$lnameAffinity
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="15" name="惊魂古塔" tags="" position="800,1525" size="100,100">&lt;&lt;set $facility to &quot;惊魂古塔&quot;&gt;&gt;
 &lt;&lt;if $facility == &quot;惊魂古塔&quot; and $tnameAffinity ==2 &gt;&gt;
-    提瑞尔的眼睛瞬间亮起，嘴角勾起一个兴奋的微笑：“太好了，我一直想试试这个！你准备好迎接刺激了吗？”他的语气中带着一丝挑衅，仿佛在期待着你们即将一起经历的冒险。
+    $tname的眼睛瞬间亮起，嘴角勾起一个兴奋的微笑：“太好了，我一直想试试这个！你准备好迎接刺激了吗？”他的语气中带着一丝挑衅，仿佛在期待着你们即将一起经历的冒险。
 
 在乘坐过程中，他时不时大声欢呼，完全沉浸在刺激中，甚至在你惊呼的时候，他会笑得更加兴奋：“看吧，这才是乐趣！” 
 
@@ -450,9 +452,9 @@ $tname的好感度增加，现在为：$tnameAffinity
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="16" name="地心探险之旅" tags="" position="950,1525" size="100,100">&lt;&lt;set $facility to &quot;惊魂古塔&quot;&gt;&gt;
 &lt;&lt;if $facility == &quot;惊魂古塔&quot; and $znameAffinity ==1 &gt;&gt;
-泽恩站在地心探险之旅前，嘴角微微扬起，充满了对未知的期待。“这应该够刺激了，希望你也能喜欢。”
+$zname站在地心探险之旅前，嘴角微微扬起，充满了对未知的期待。“这应该够刺激了，希望你也能喜欢。”
 
-在地心探险之旅的每个起伏中，泽恩都保持冷静，偶尔转头看看你，确保你没事。“没事吧？”他说道，语气中透着对你的关心。
+在地心探险之旅的每个起伏中，$zname都保持冷静，偶尔转头看看你，确保你没事。“没事吧？”他说道，语气中透着对你的关心。
 &lt;&lt;/if&gt;&gt;
 
 $zname和你玩得十分开心。  &lt;&lt;set $znameAffinity to $znameAffinity + 1&gt;&gt;
@@ -466,13 +468,14 @@ $zname的好感度增加，现在为：$znameAffinity
 
 </tw-passagedata><tw-passagedata pid="18" name="去高级餐厅" tags="" position="625,1775" size="100,100">&lt;&lt;set $lunch to &quot;高级餐厅&quot;&gt;&gt;
 &lt;&lt;if $lunch ==  &quot;高级餐厅&quot; and $knameAffinity ==1 &gt;&gt;
-克莱奥斯微笑着走向高级餐厅，优雅地为你拉开椅子。
+$kname微笑着走向高级餐厅，优雅地为你拉开椅子。
 “你应该尝试一下这里的特色料理，它们都是选用最顶级的食材。”
 他说话的声音低沉而富有磁性，眼中充满了深情，仿佛每个细节都经过了他精心的考虑。
 &lt;&lt;/if&gt;&gt;
 
-克莱奥斯优雅地解释着每道菜的风味，仿佛这顿饭是一次优雅的艺术享受。
+$kname优雅地解释着每道菜的风味，仿佛这顿饭是一次优雅的艺术享受。
 你享用了美味的一餐。  &lt;&lt;set $knameAffinity to $knameAffinity + 1&gt;&gt;
+
 $kname的好感度增加，现在为：$knameAffinity
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="19" name="结尾" tags="" position="375,2050" size="100,100">游乐园之旅总是让人开心！还剩下一点时间，你想和谁一起度过？
@@ -490,7 +493,7 @@ $kname的好感度增加，现在为：$knameAffinity
 [[克莱奥斯|克莱奥斯]]
 &lt;&lt;else&gt;&gt;
 [[还是回家吧|初始]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="提瑞尔" tags="" position="125,1150" size="100,100">在一天的游玩接近尾声时，提瑞尔突然停下脚步，用一种略带嘲讽的语气说：&quot;要不要去试试那个&#39;浪漫&#39;的旋转木马？&quot;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="提瑞尔" tags="" position="125,1150" size="100,100">在一天的游玩接近尾声时，$tname突然停下脚步，用一种略带嘲讽的语气说：&quot;要不要去试试那个&#39;浪漫&#39;的旋转木马？&quot;
 
 你有些惊讶地看着他。
 
@@ -498,11 +501,11 @@ $kname的好感度增加，现在为：$knameAffinity
 
 他总是能一针见血地指出事物的本质。
 
-然而当你们真的坐上旋转木马，五彩斑斓的灯光笼罩着你们时，提瑞尔脸上惯常的刻薄神情却悄然褪去。他坐在你旁边的木马上，嘴角微微上扬，带着一丝他自己可能都没察觉到的放松。
+然而当你们真的坐上旋转木马，五彩斑斓的灯光笼罩着你们时，$tname脸上惯常的刻薄神情却悄然褪去。他坐在你旁边的木马上，嘴角微微上扬，带着一丝他自己可能都没察觉到的放松。
 
-提瑞尔的语气依然带着一贯的克制，但字里行间却透着难得的关切。
+$tname的语气依然带着一贯的克制，但字里行间却透着难得的关切。
 
-&quot;我注意到最近你总是在训练场待到很晚。&quot;提瑞尔突然开口，&quot;以你的实力，完全没必要这么拼命。过分勉强自己反而会适得其反，这点道理我想你应该明白。&quot;
+&quot;我注意到最近你总是在训练场待到很晚。&quot;$tname突然开口，&quot;以你的实力，完全没必要这么拼命。过分勉强自己反而会适得其反，这点道理我想你应该明白。&quot;
 
 &quot;你的实力早就得到了所有人的认可，没必要把自己逼得太紧。&quot;
 
@@ -510,20 +513,20 @@ $kname的好感度增加，现在为：$knameAffinity
 
 木马停下后，你们走在回去的路上。
 
-提瑞尔望向你，微微侧头，用那种介于讽刺和真诚之间的语气说：&quot;虽然这确实是符合我想象中愚蠢的设施，但如果能再看到你露出这么傻的笑容，偶尔浪费些时间似乎也不那么令人难以忍受。下次...我们还可以来。&quot;
+$tname望向你，微微侧头，用那种介于讽刺和真诚之间的语气说：&quot;虽然这确实是符合我想象中愚蠢的设施，但如果能再看到你露出这么傻的笑容，偶尔浪费些时间似乎也不那么令人难以忍受。下次...我们还可以来。&quot;
 
 他嘴角挂着那抹标志性的从容笑意，仿佛刚才说出的邀约不过是再普通不过的对话。
 
 &lt;&lt;linkreplace &quot;好。&quot; &gt;&gt; 
-END：提瑞尔
+END：$tname
 [[重新开始|初始]] 
-&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="21" name="克莱奥斯" tags="" position="0,1175" size="100,100">夜晚的迪士尼乐园依旧灯火辉煌，而你和克莱奥斯则回到了他为你精心挑选的豪华套房。
+&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="21" name="克莱奥斯" tags="" position="0,1175" size="100,100">夜晚的迪士尼乐园依旧灯火辉煌，而你和$kname则回到了他为你精心挑选的豪华套房。
 
 远处的摩天轮闪烁着柔和的灯光。
 
 套房内装饰高雅，窗外的夜景美得仿佛来自童话世界。
 
-克莱奥斯站在落地窗旁，优雅地拉开厚重的窗帘，露出了远处那绚丽的夜景。
+$kname站在落地窗旁，优雅地拉开厚重的窗帘，露出了远处那绚丽的夜景。
 
 他转过身，目光温柔，嘴角带着一丝浅浅的笑意。“这里的夜景很美，但今晚我更享受的是和你在一起的时光。”
 
@@ -531,7 +534,7 @@ END：提瑞尔
 
 你坐在椅子上，透过巨大的窗户看着远处旋转的摩天轮，夜晚的微风轻轻吹拂，带来一丝凉意。
 
-克莱奥斯似乎察觉到你的感受，温柔地将一条柔软的毯子轻轻披在你肩上，动作细致而充满关怀。
+$kname似乎察觉到你的感受，温柔地将一条柔软的毯子轻轻披在你肩上，动作细致而充满关怀。
 
 “你知道吗？”他缓缓开口，声音低沉而富有磁性，“我一直相信，美好的回忆就像这摩天轮一样，一圈一圈地回旋，每一次都能带来新的感受。今晚的记忆，或许会成为我最珍贵的回忆之一。“
 
@@ -544,17 +547,17 @@ END：提瑞尔
 夜色愈发浓厚，窗外的摩天轮依然闪烁，而你们的心却在此刻紧紧相连。
 
 &lt;&lt;linkreplace &quot;我也是。&quot; &gt;&gt; 
-END：克莱奥斯
+END：$kname
 [[重新开始|初始]] 
-&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="22" name="路西恩" tags="" position="350,1125" size="100,100">一天就要结束了，路西恩带着你走向迪士尼的玩偶店。
+&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="22" name="路西恩" tags="" position="350,1125" size="100,100">一天就要结束了，$lname带着你走向迪士尼的玩偶店。
 
 店里五彩缤纷的玩偶摆满了货架，每一个角落都充满了梦幻的气息。
 
-路西恩看中了一顶可爱的玩偶帽子，犹豫片刻后，他终于决定为自己买下它。
+$lname看中了一顶可爱的玩偶帽子，犹豫片刻后，他终于决定为自己买下它。
 
 你看着他戴上那顶玩偶帽子，虽然他脸上带着些许害羞的神情，但那份纯粹的喜悦在他眼中闪烁，令人心生暖意。
 
-“我知道这看起来有点孩子气，”路西恩微笑着轻声说，轻轻碰了碰帽檐，“但在这样的地方，偶尔也想放下拘束，享受一下童年的快乐。”
+“我知道这看起来有点孩子气，”$lname微笑着轻声说，轻轻碰了碰帽檐，“但在这样的地方，偶尔也想放下拘束，享受一下童年的快乐。”
 
 “和你一起度过的童年是我最宝贵的回忆。”
 
@@ -570,7 +573,7 @@ END：克莱奥斯
 
 橱窗外，夜色已经降临，梦幻的光辉闪烁在迪士尼的街道上，仿佛整个世界在此刻为你们停留。
 
-路西恩在这柔和的灯光下显得更加温暖，帽子的影子映在他的脸上，柔和地衬托着他那略带羞涩的笑容。
+$lname在这柔和的灯光下显得更加温暖，帽子的影子映在他的脸上，柔和地衬托着他那略带羞涩的笑容。
 
 他悄悄握住你的手，微微低下头，眼神中透着不舍与期盼，低声说道：“今天的每一刻都让我想起了那些无忧的时光，和你一起，仿佛重新找回了那份纯粹的快乐。”
 
@@ -579,9 +582,9 @@ END：克莱奥斯
 在那宁静的夜晚，他的声音如同微风，带着温柔的感情流入你心中。
 
 &lt;&lt;linkreplace &quot;我也是。&quot; &gt;&gt; 
-END：路西恩
+END：$lname
 [[重新开始|初始]] 
-&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="23" name="泽恩" tags="" position="250,1150" size="100,100">在游行的最后，泽恩和你找了一个理想的观景点，准备观看夜间的游行。
+&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="23" name="泽恩" tags="" position="250,1150" size="100,100">在游行的最后，$zname和你找了一个理想的观景点，准备观看夜间的游行。
 
 他微微调整了自己的位置，确保你能看到游行中最精彩的部分。
 
@@ -593,7 +596,7 @@ END：路西恩
 
 你们置身于这热闹的氛围中，心中充满了欢愉与期待。
 
-你感受到身旁的泽恩温暖的存在，他为你挡住了寒风.
+你感受到身旁的$zname温暖的存在，他为你挡住了寒风.
 
 “别担心，我不冷。”他轻声笑着说，语气中带着一丝宠溺。
 
@@ -601,7 +604,7 @@ END：路西恩
 
 你兴奋地与他分享着对每一个表演的看法，笑声与欢呼声交织在一起，空气中充满了欢乐的气息。
 
-泽恩静静地陪伴着你，目光始终柔和而温暖。
+$zname静静地陪伴着你，目光始终柔和而温暖。
 
 他没有像你那样被游行吸引，而是专注于观察你那因兴奋而亮晶晶的眼睛，以及你脸上流露出的喜悦。
 
@@ -616,7 +619,7 @@ END：路西恩
 他的眼神中闪烁着不容置疑的坚定，游行中的所有灯光都无法比拟。
 
 &lt;&lt;linkreplace &quot;好。&quot; &gt;&gt; 
-END：泽恩
+END：$zname
 [[重新开始|初始]] 
 &lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="24" name="去可丽饼店" tags="" position="900,1850" size="100,100">可丽饼店的食品种类意外很丰盛！菜单上有各种可丽饼选择。大家开始讨论自己想吃的口味。
 
@@ -736,7 +739,7 @@ $dayOfWeek
 
 &lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="30" name="看书" tags="" position="75,375" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="隐藏的书" tags="" position="275,375" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="黑糖&amp;抹茶&amp;鲜奶油" tags="" position="800,2075" size="100,100"> 黑糖和抹茶的组合让这款可丽饼充满了独特的风味！
  
- 提瑞尔看了看你的可丽饼，把头探过来咬了一口。
+$tname看了看你的可丽饼，把头探过来咬了一口。
  
  “和我想的一样美味。”他意犹未尽地舔了一下嘴唇。
  
@@ -745,14 +748,14 @@ $tname的好感度增加，现在为：$tnameAffinity
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="33" name="特大号" tags="" position="775,2000" size="100,100">&quot; 特大号的可丽饼确实吃起来很过瘾吧！“
 
-泽恩捧着和你手里一样巨大的可丽饼对着你笑道。
+$zname捧着和你手里一样巨大的可丽饼对着你笑道。
 
 &lt;&lt;set $znameAffinity to $znameAffinity + 1&gt;&gt;
 $zname的好感度增加，现在为：$znameAffinity
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="34" name="草莓和生奶油搭配可爱的薄饼" tags="" position="750,1900" size="100,100">你选择了草莓和生奶油搭配的可丽饼，真是太美味了！
 
-路西恩看起来很高兴。
+$lname看起来很高兴。
 他的手里拿着和你一样口味的可丽饼，饼面上还有可爱的米奇图案。 
 
 &lt;&lt;set $lnameAffinity to $lnameAffinity + 1&gt;&gt;
@@ -799,7 +802,7 @@ $lname的好感度增加，现在为：$lnameAffinity
 &lt;/table&gt;
 
 [[返回|$return]]
-</tw-passagedata><tw-passagedata pid="39" name="他的隐藏一面？" tags="" position="825,2200" size="100,100">克莱奥斯站在可丽饼柜前，目光扫过各种口味。
+</tw-passagedata><tw-passagedata pid="39" name="他的隐藏一面？" tags="" position="825,2200" size="100,100">$kname站在可丽饼柜前，目光扫过各种口味。
 
 摆在面前的是五颜六色的可丽饼：香草、巧克力、草莓、柠檬，以及最角落里的原味肉桂。他的视线在它们之间来回游移，眉梢不经意间微不可察地跳动了一下。
 
@@ -819,7 +822,7 @@ $lname的好感度增加，现在为：$lnameAffinity
 
 你注意到他的异样，走近道：&quot;你喜欢肉桂味的吗？&quot;
 
-克莱奥斯抬眼，对上你的视线，嘴角浮现一丝若有若无的笑：微微一笑：&quot;偶尔怀旧也不错。&quot;语气轻松自如，丝毫没有暴露内心的小心思。
+$kname抬眼，对上你的视线，嘴角浮现一丝若有若无的笑：微微一笑：&quot;偶尔怀旧也不错。&quot;语气轻松自如，丝毫没有暴露内心的小心思。
 
 他随意地摊开手，仿佛方才的一切都不过是一个微不足道的小插曲。
 
