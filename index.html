@@ -249,7 +249,7 @@ Macro.add('speech', {
 &lt;&lt;/linkreplace&gt;&gt; 
 
 
-</tw-passagedata><tw-passagedata pid="4" name="酒吧" tags="" position="700,600" size="100,100">$barVisits
+</tw-passagedata><tw-passagedata pid="4" name="酒吧" tags="" position="700,600" size="100,100">$barVisits  $photo
 &lt;&lt;if $hour &lt; 11 &gt;&gt;
   &lt;!-- 11点前酒吧不会触发任何事件 --&gt;
 现在去酒吧还是太早了！
@@ -302,14 +302,14 @@ Macro.add('speech', {
 吧台侍者拿着菜单和记录用的笔，站在你的桌旁：“要来点什么吗？”
  [[继续|提酒吧事件]] 
 
-&lt;&lt;elseif $hour &gt;= 20 and $hour &lt; 23 and $barVisits ==&quot;ok&quot; and  $photo== &quot;yes&quot;&gt;&gt; &lt;!-- 20点-23点，兰登三人事件已触发完，触发团长和泽恩的多人事件 --&gt;
+&lt;&lt;elseif $hour &gt;= 20 and $hour &lt; 23 and $barVisits ==&quot;no&quot; and  $photo== &quot;yes&quot;&gt;&gt; &lt;!-- 20点-23点，兰登三人事件已触发完，触发团长和泽恩的多人事件 --&gt;
 像是往常一样，你走进酒馆，空气中弥漫着熟悉的酒精气味。
 
 你径直走向远处一张偏僻的桌子，正打算找个安静的角落思考时，隐约听到不远处传来一阵交谈的声音。似乎是些熟悉的人在讨论着什么。
 
 [[继续|克酒吧事件续]] 
 
-&lt;&lt;elseif $hour &gt;= 20 and $hour &lt; 23 and $barVisits !=&quot;ok&quot;&gt;&gt; &lt;!-- 20点-23点，兰登三人事件未触发完，触发三人的喝酒事件 --&gt;
+&lt;&lt;elseif $hour &gt;= 20 and $hour &lt; 23 and $barVisits !=&quot;yes&quot;&gt;&gt; &lt;!-- 20点-23点，兰登三人事件未触发完，触发三人的喝酒事件 --&gt;
 （可能补一个事件）
 [[暂时回家|初始]] 
 
@@ -1056,7 +1056,7 @@ $kname的好感度增加，现在为：$knameAffinity
 你站起身，朝他们挥了挥手，目送他们走出酒馆。外面的夜风带来些许凉意，而你依然没能完全摆脱心中的疑虑。
 
 尽管如此，眼下没有更多线索，你只好暂时将这件事放在心底，打算以后再做打算。
- &lt;&lt;set $minute to $minute + 30&gt;&gt;&lt;&lt;set $photo=&quot;yes&quot;&gt;&gt;
+ &lt;&lt;set $minute to $minute + 30&gt;&gt;&lt;&lt;set $photo=&quot;yes&quot;&gt;&gt;$barVisits  $photo
 [[回家|初始]]
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
