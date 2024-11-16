@@ -169,6 +169,16 @@ tw-story {
 .阿丽斯 .avatar {
     background-image: URL("path/to/alice-avatar.png");
 }
+</style>
+
+<style>
+  /* 定义斜体和粉色的字体样式 */
+  .italic-pink-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: pink; /* 粉色 */
+    font-style: italic; /* 斜体 */
+  }
 </style></style><script role="script" id="twine-user-script" type="text/twine-javascript">// 1. 使用 predisplay 保存返回的 passage 名称
 predisplay["Menu Return"] = function (taskName) {
     // 检查当前 passage 是否包含 "noreturn" 标签
@@ -214,20 +224,22 @@ Macro.add('speech', {
 [[王宫][$minute+=30]]
 [[酒吧][$minute+=30]]
 
+
+&lt;&lt;if $tnameAffinity &gt;= 1 &amp;&amp; $knameAffinity &gt;= 1 &amp;&amp; $lnameAffinity &gt;= 1 &amp;&amp; $znameAffinity &gt;= 1&gt;&gt;
 [[出去玩|出去玩]]
-
-&lt;&lt;if $tnameAffinity &gt;= 3 &amp;&amp; $knameAffinity &gt;= 3 &amp;&amp; $lnameAffinity &gt;= 3 &amp;&amp; $znameAffinity &gt;= 3&gt;&gt;
-
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="2" name="训练场" tags="" position="825,900" size="100,100">&lt;&lt;if $day &gt; 1 &gt;&gt;
 今天的训练场也依旧没有多少人在训练，你拿起木刀，继续准备开始今天的训练。
 
 你专注地挥舞木刀，每一次劈砍都充满了力道与精准，尽管没有人陪伴，你依然全情投入，努力提升自己。
+
 [[继续|训练场1]] 
 
 &lt;&lt;else&gt;&gt;
-训练场上空无一人，只有你一个人站在那里，开始认真进行每日训练。
+训练场上空无一人，你一个人站在训练场中央。
+
+开始认真进行每日训练。
 
 你投入了所有的精力，挥动剑柄，脚步稳健，每一招每一式都力求完美。
 
@@ -254,12 +266,11 @@ Macro.add('speech', {
 
 &lt;&lt;linkreplace &quot;继续&quot; &gt;&gt; 
 今天也完美完成了骑士的职责！
- &lt;&lt;set $minute to $minute + 30&gt;&gt;
+&lt;&lt;set $day +=1&gt;&gt;&lt;&lt;set $minute to 30 &gt;&gt;
 &lt;&lt;link &quot;回家&quot;&gt;&gt;&lt;&lt;goto &quot;初始&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt; 
     
-  &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="酒吧" tags="" position="700,600" size="100,100">$barVisits  $photo
-&lt;&lt;if $hour &lt; 11 &gt;&gt;
+  &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="酒吧" tags="" position="700,600" size="100,100">&lt;&lt;if $hour &lt; 11 &gt;&gt;
   &lt;!-- 11点前酒吧不会触发任何事件 --&gt;
 现在去酒吧还是太早了！
 酒馆里几乎没有人。吧台的侍者抬头看了一眼你，然后又低头继续擦拭杯子。
@@ -351,7 +362,7 @@ Macro.add('speech', {
 [[进入|路西恩王宫事件1]]
     
   &lt;&lt;else&gt;&gt;
-王宫的戒备依旧森严，守门人询问你是否有特殊的事情需要接见。  
+王宫的戒备森严，守门人询问你是否有特殊的事情需要接见。  
 你摇了摇头，表示没有。
  &lt;&lt;set $minute to $minute + 30&gt;&gt;
 &lt;&lt;link &quot;回家&quot;&gt;&gt;
@@ -437,7 +448,7 @@ $lname的好感度增加，现在为：$lnameAffinity
 [[路西恩|更休闲的路线]]</tw-passagedata><tw-passagedata pid="11" name="更刺激的路线" tags="" position="875,1400" size="100,100">你赞同了$tname的提议！$tname挑了挑眉，看起来很高兴：“我就知道红发有品位。当然由我来吧，至少不会让你们迷路。”他斜着眼瞥了你们一眼，双手交叉在胸前，仿佛这是理所当然的事。
 
 &lt;&lt;set $tnameAffinity to $tnameAffinity + 1&gt;&gt;  
-提瑞尔的好感度增加，现在为：$tnameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 
  $tname决定带你去最刺激的游乐设施。接下来你们决定要去：
  
@@ -445,7 +456,7 @@ $lname的好感度增加，现在为：$lnameAffinity
  [[地心探险之旅]] &lt;&lt;set $facility is &quot;地心探险之旅&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="更休闲的路线" tags="" position="600,1400" size="100,100">你赞同了$lname的提议！$lname很高兴，兴奋地向你讲解接下来的路线规划。
 $lname温和地说：“我们可以悠闲地逛逛，不必着急。”他挠了挠后脑勺，略显害羞，眼神却始终带着关怀。
 &lt;&lt;set $lnameAffinity to $lnameAffinity + 1&gt;&gt;  
-路西恩的好感度增加，现在为：$lnameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 $lname提议选择一些轻松的项目作为开始。接下来你们决定要去：
 
@@ -456,7 +467,7 @@ $lname提议选择一些轻松的项目作为开始。接下来你们决定要�
 &lt;&lt;/if&gt;&gt;
 
 你和$lname玩得十分开心。  &lt;&lt;set $lnameAffinity to $lnameAffinity + 1&gt;&gt;
-$lname的好感度增加，现在为：$lnameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="14" name="西部小火车" tags="" position="650,1525" size="100,100">&lt;&lt;set $facility to &quot;西部小火车&quot;&gt;&gt;
 你乘上火车，沿途的景色十分美丽，你默默望着窗外享受这份宁静。
@@ -469,7 +480,7 @@ $lname的好感度增加，现在为：$lnameAffinity
 
 &lt;&lt;/if&gt;&gt;
 $tname玩得十分开心。你心有余悸。  &lt;&lt;set $tnameAffinity to $tnameAffinity + 1&gt;&gt;
-$tname的好感度增加，现在为：$tnameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="16" name="地心探险之旅" tags="" position="950,1525" size="100,100">&lt;&lt;set $facility to &quot;惊魂古塔&quot;&gt;&gt;
 &lt;&lt;if $facility == &quot;惊魂古塔&quot; and $znameAffinity ==1 &gt;&gt;
@@ -479,7 +490,7 @@ $zname站在地心探险之旅前，嘴角微微扬起，充满了对未知的�
 &lt;&lt;/if&gt;&gt;
 
 $zname和你玩得十分开心。  &lt;&lt;set $znameAffinity to $znameAffinity + 1&gt;&gt;
-$zname的好感度增加，现在为：$znameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$zname的好感度增加，现在为：$znameAffinity &lt;/span&gt;
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="17" name="午餐" tags="" position="775,1725" size="100,100">尽情游玩过后总是让人感到饥饿，是时候去吃点东西了。
 
@@ -497,20 +508,20 @@ $kname微笑着走向高级餐厅，优雅地为你拉开椅子。
 $kname优雅地解释着每道菜的风味，仿佛这顿饭是一次优雅的艺术享受。
 你享用了美味的一餐。  &lt;&lt;set $knameAffinity to $knameAffinity + 1&gt;&gt;
 
-$kname的好感度增加，现在为：$knameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$kname的好感度增加，现在为：$knameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="19" name="结尾" tags="" position="375,2050" size="100,100">游乐园之旅总是让人开心！还剩下一点时间，你想和谁一起度过？
 
-&lt;&lt;if $tnameAffinity &gt;= 3&gt;&gt;
+&lt;&lt;if $tnameAffinity &gt;= 4&gt;&gt;
 [[提瑞尔|提瑞尔]]
-&lt;&lt;elseif $lnameAffinity &gt;= 3 &gt;&gt;
+&lt;&lt;elseif $lnameAffinity &gt;= 4 &gt;&gt;
 [[路西恩|路西恩]]
-&lt;&lt;elseif $znameAffinity &gt;= 2 &amp;&amp; $knameAffinity &gt;= 2&gt;&gt;
+&lt;&lt;elseif $znameAffinity &gt;= 3 &amp;&amp; $knameAffinity &gt;= 3&gt;&gt;
 [[泽恩|泽恩]] 
 [[克莱奥斯|克莱奥斯]]
-&lt;&lt;elseif $znameAffinity &gt;= 2&gt;&gt;
+&lt;&lt;elseif $znameAffinity &gt;= 3&gt;&gt;
 [[泽恩|泽恩]]
-&lt;&lt;elseif $knameAffinity &gt;= 2&gt;&gt;
+&lt;&lt;elseif $knameAffinity &gt;= 3&gt;&gt;
 [[克莱奥斯|克莱奥斯]]
 &lt;&lt;else&gt;&gt;
 [[还是回家吧|初始]]
@@ -737,14 +748,14 @@ $tname看了看你的可丽饼，把头探过来咬了一口。
  “和我想的一样美味。”他意犹未尽地舔了一下嘴唇。
  
  &lt;&lt;set $tnameAffinity to $tnameAffinity + 1&gt;&gt;
-$tname的好感度增加，现在为：$tnameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="33" name="特大号" tags="" position="775,2000" size="100,100">&quot; 特大号的可丽饼确实吃起来很过瘾吧！“
 
 $zname捧着和你手里一样巨大的可丽饼对着你笑道。
 
 &lt;&lt;set $znameAffinity to $znameAffinity + 1&gt;&gt;
-$zname的好感度增加，现在为：$znameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$zname的好感度增加，现在为：$znameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="34" name="草莓和生奶油搭配可爱的薄饼" tags="" position="750,1900" size="100,100">你选择了草莓和生奶油搭配的可丽饼，真是太美味了！
 
@@ -752,7 +763,7 @@ $lname看起来很高兴。
 他的手里拿着和你一样口味的可丽饼，饼面上还有可爱的米奇图案。 
 
 &lt;&lt;set $lnameAffinity to $lnameAffinity + 1&gt;&gt;
-$lname的好感度增加，现在为：$lnameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="35" name="睡觉" tags="" position="525,625" size="100,100">&lt;&lt;set $day +=1&gt;&gt;
 
@@ -767,20 +778,20 @@ $lname的好感度增加，现在为：$lnameAffinity
 一觉起来神清气爽。
 
 [[起床|初始]] </tw-passagedata><tw-passagedata pid="36" name="StoryMenu" tags="" position="1075,0" size="100,100">[[休息一会儿]]
-[[个人资料]]</tw-passagedata><tw-passagedata pid="37" name="休息一会儿" tags="noreturn" position="1375,0" size="100,100">[[休息1個小时|$return][$hour+=1]]
+[[个人资料/好感查询]]</tw-passagedata><tw-passagedata pid="37" name="休息一会儿" tags="noreturn" position="1375,0" size="100,100">[[休息1個小时|$return][$hour+=1]]
 
 [[休息3個小时|$return][$hour+=3]]
 
 [[休息6個小时|$return][$hour+=6]]
  
-[[返回|$return]] </tw-passagedata><tw-passagedata pid="38" name="个人资料" tags="noreturn" position="1225,0" size="100,100">&lt;table border=&quot;2&quot;&gt;
+[[返回|$return]] </tw-passagedata><tw-passagedata pid="38" name="个人资料/好感查询" tags="noreturn" position="1225,0" size="100,100">&lt;table border=&quot;2&quot;&gt;
   &lt;tr&gt;
-    &lt;th&gt;名字：$playerName&lt;/th&gt;
-  
+   &lt;td colspan=&quot;2&quot;&gt;名字：$playerName&lt;/td&gt;
     &lt;/tr&gt;
   &lt;tr&gt;
-     &lt;td&gt;攻略角色信息：&lt;/td&gt;
-  &lt;/tr&gt;
+   &lt;th&gt;攻略角色&lt;/th&gt;
+    &lt;th&gt;攻略角色信息描述&lt;/th&gt;
+    &lt;/tr&gt;
   &lt;tr&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -804,12 +815,9 @@ $lname的好感度增加，现在为：$lnameAffinity
 &lt;&lt;else&gt;&gt; 你可能需要和 $zname 有更多的互动来增进关系。 &lt;&lt;/if&gt;&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;提示：部分地点的开启需要全员好感达标哦~&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
-
-[[返回|$return]]
-</tw-passagedata><tw-passagedata pid="39" name="他的隐藏一面？" tags="" position="825,2200" size="100,100">$kname站在可丽饼柜前，目光扫过各种口味。
+    &lt;td colspan=&quot;2&quot;&gt;提示：部分地点的开启需要全员好感达标哦~&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</tw-passagedata><tw-passagedata pid="39" name="他的隐藏一面？" tags="" position="825,2200" size="100,100">$kname站在可丽饼柜前，目光扫过各种口味。
 
 摆在面前的是五颜六色的可丽饼：香草、巧克力、草莓、柠檬，以及最角落里的原味肉桂。他的视线在它们之间来回游移，眉梢不经意间微不可察地跳动了一下。
 
@@ -837,7 +845,7 @@ $kname抬眼，对上你的视线，嘴角浮现一丝若有若无的笑：微�
 
 &lt;&lt;linkreplace &quot;咬一口。&quot; &gt;&gt; 
  &lt;&lt;set $knameAffinity to $knameAffinity + 1&gt;&gt;
-$kname的好感度增加，现在为：$knameAffinity
+&lt;span class=&quot;italic-pink-text&quot;&gt;$kname的好感度增加，现在为：$knameAffinity &lt;/span&gt;
 [[用餐结束|结尾]]
 &lt;&lt;/linkreplace&gt;&gt; 
 
@@ -858,12 +866,18 @@ $kname的好感度增加，现在为：$knameAffinity
 
 本文人物基于黄昏中魔女如是说本篇的设定进行创作，故事情节发展参考潮文音官网小段子剧情，遇到卡好感度时可以参考小段子进行选择。
 
-有ooc全算我的，建议把饭扣到我脸上，割腿肉真的麻了。
+里面会出现的包括且不限于人物莫名其妙的深情和修罗场。建议当成娱乐一作。
+
+有ooc全算我的，建议做碗新的饭扣到我脸上，割腿肉真的麻了。
 
 作者全员爱，默认按照安娜斯塔西娅视角和设定推动故事情节发展。
-考虑到打乙默认习惯问题，保留改名。
+考虑到打乙默认习惯问题，保留改名。磕代随意。
 
 当无法触发新剧情时，建议在不同时间段多去相同地点逛逛。
+
+卡流程尽量不要直接重启，好感度可能会归零部分地点无法触发。
+
+原本加入更多属性判定，但碍于笔力有限，在尽量贴合人物的继续创作已经十分为难。所以是n年也不一定会有的后续更新。
 
 &lt;&lt;linkreplace &quot;继续&quot; &gt;&gt; 
 主角名默认为&lt;&lt;print $playerName&gt;&gt;。
@@ -880,7 +894,8 @@ $kname的好感度增加，现在为：$knameAffinity
 雨果也难掩愤怒，语气坚定：“这可是团长，米切尔！他平时对我们那么关怀有加，你却居然在这里散播他的照片？这种行为简直是对他的不敬！你知道你在干什么吗？”
 
 米切尔显然感到场面有些焦灼，但他深吸一口气，语气中透着一丝迫切：“兄弟们，听我说！我绝对不是故意侵犯团长的隐私，这事儿没你们想得那么严重。
-照片不是偷来的，是我正当买的。我还特意打听过，这些照片完全是无害的，不涉及什么机密内容。”
+
+“照片不是偷来的，是我正当买的。我还特意打听过，这些照片完全是无害的，不涉及什么机密内容。”
 
 [[继续|克酒吧事件2]]</tw-passagedata><tw-passagedata pid="44" name="克酒吧事件2" tags="" position="850,450" size="100,100">见你和雨果的神情仍旧紧张，米切尔继续解释：“想想看，这些照片不过是团长平常的样子——喝茶、站在窗边，甚至有些还很模糊，根本不会让团长陷入麻烦。
 
@@ -990,15 +1005,15 @@ $zname似乎有些无奈，但也不再劝阻：“嗯，你有分寸就好。�
 
 &quot;承蒙关照，&quot;$kname似笑非笑地举杯，“我的可爱下属才不会那样呢。&quot;他端起酒杯，笑意盈盈。
 
-“哦？不在意？”$tname挑眉，随后眯起了眼睛，&quot;那些照片要不是你点头,米切尔那小子哪敢擅自...&quot; 话没说完，就被$zname狠狠踢了一脚。
+“哦？不在意？”$tname挑眉，随后眯起了眼睛，&quot;那些照片要不是你点头,米切尔那小子哪敢擅自...&quot; 话没说完，就被$zname默不作声踢了一脚。
 
-$tname狠狠瞪了一眼$zname，随后撇了撇嘴，看向你。
+$tname恶狠狠瞪了一眼$zname，随后撇了撇嘴，看向你。
 
 你感到双颊有些发热，虽然不知道发生了什么，但来自团长的直白夸赞让你有些害羞。
 
 [[继续|克酒吧事件续3]]</tw-passagedata><tw-passagedata pid="52" name="克酒吧事件续3" tags="" position="1475,450" size="100,100">“啧，在公开场合调戏自己的下属，这算职权骚扰应该火刑吧。”$tname嘴角勾起一丝不满的笑，目光专注在你发红的脸颊上，语气明显带着不爽。
 
-“喂，红发，”他转向你，“要不去我那儿，我那群废物虽然干事不靠谱，但起码经过我‘调教’的嘴巴肯定能管住，至少不会像某个性骚扰团长一样。“$tname一边说着一边笑容越来越愉悦。
+“喂，红发，”他转向你，“要不去我那儿，我那群废物虽然干事不靠谱，但起码经过我‘调教’，嘴巴肯定有把门，至少不会像某个‘性骚扰’团长一样。“$tname一边说着一边笑容越来越愉悦。
 
 $kname不动声色地挡在你面前，笑容温和却不容忽视：&quot;提瑞尔，别总是想着挖墙脚。骑士团可比某些只有冰冷刑具和地下室的地方好多了。
 
@@ -1027,7 +1042,7 @@ $kname轻笑一声：&quot;怎么，泽恩，你也想要掺一手吗？&quot;
 [[继续|克酒吧事件续5]]
 </tw-passagedata><tw-passagedata pid="54" name="克酒吧事件续5" tags="" position="1725,450" size="100,100">&quot;哦？&quot;$tname挑衅地看向$kname，&quot;那不如说说前天谁特意绕路去...&quot;
 
-&quot;我想，&quot;$kname优雅地举起酒杯，打断了$tname的话，&quot;与其讨论这些无聊的事情，不如为$playerName最近的进步干一杯。&quot;
+&quot;我想，&quot;$kname放下酒杯，打断了$tname的话，&quot;与其讨论这些无聊的事情，不如为$playerName最近的进步干一杯。&quot;
 
 他看向你的眼神温柔似水，&quot;毕竟，能有这样忠诚且优秀的下属，是我的荣幸。&quot;
 
@@ -1047,7 +1062,7 @@ $kname优雅地起身：&quot;泽恩说得对。&quot;他看向你，眼神柔�
 
 你回头，看见他温柔的笑容：&quot;今天谢谢了。&quot;
 
-他的声音并不是很大，你只能隐约只能看着他的口型猜出他的话语，对他重重点了头。
+他的声音并不是很大，你只能隐约只能看着他的口型猜出他的话语，对他重重点了点头。
 
 $zname在旁边轻轻摇了摇头，嘴角扬起一丝调侃的弧度：“真少见啊，克莱奥斯，你居然这么坦率。”
 
@@ -1055,7 +1070,7 @@ $zname在旁边轻轻摇了摇头，嘴角扬起一丝调侃的弧度：“真�
 
 $tname走过来，用肩膀轻轻撞了撞$zname，带着些许不服气地笑道：“别只顾说漂亮话了泽恩。走了，红发。“
 
-三人目光交汇，你忍不住笑了笑。
+四人目光交汇，你忍不住笑了笑。
 
 ”大家明天见。“
 
@@ -1070,31 +1085,13 @@ $tname走过来，用肩膀轻轻撞了撞$zname，带着些许不服气地笑�
 
 $kname走近你，似乎在认真观察你的表现。
 
-他继续说道，“而且你也能看得出自己哪部分还需要改进，这对进步很有帮助。””
-
-他轻轻拍了拍你的肩膀，眼中带着些许肯定，“你做得很好，$playerName。”
-
-你微微一笑，虽然有些疲惫，但依旧不掩心中的喜悦：“谢谢团长。今天的训练感觉特别顺利。”
-
-$kname微微一笑，眼神温柔：“如果你想，我可以教你一些新的技巧，下次在训练场上展示给我看。”
-
-他语气中充满信心，“我相信你会很快掌握的。”
-
-你点点头，内心升起一股坚定的力量：“我会尽力的团长。谢谢你百忙之中还来指导我。”
-
-$kname轻轻笑了笑：“看得出，你真的很用心。保持这个状态，进步会很快的。”他转身，似乎准备离开，“如果有任何问题，随时可以找我。”
-
-&lt;&lt;set $knameAffinity +=1&gt;&gt;&lt;&lt;set $barVisits == &quot;ok&quot;&gt;&gt;
-$kname的好感度增加，现在为：$knameAffinity
-
-你看着他的背影，坚定地握了握手。
- &lt;&lt;set $minute to $minute + 30&gt;&gt;
-[[回家|初始]] </tw-passagedata><tw-passagedata pid="57" name="克酒吧事件4" tags="" position="1100,450" size="100,100">聊了一会儿，夜渐深，你们决定各自回去休息。
+[[继续|训练场2]] 
+</tw-passagedata><tw-passagedata pid="57" name="克酒吧事件4" tags="" position="1100,450" size="100,100">聊了一会儿，夜渐深，你们决定各自回去休息。
 
 你站起身，朝他们挥了挥手，目送他们走出酒馆。外面的夜风带来些许凉意，而你依然没能完全摆脱心中的疑虑。
 
 尽管如此，眼下没有更多线索，你只好暂时将这件事放在心底，打算以后再做打算。
- &lt;&lt;set $minute to $minute + 30&gt;&gt;&lt;&lt;set $photo=&quot;yes&quot;&gt;&gt;$barVisits  $photo
+ &lt;&lt;set $minute to $minute + 30&gt;&gt;&lt;&lt;set $photo=&quot;yes&quot;&gt;&gt; &lt;&lt;set $day to $day + 1&gt;&gt;
 [[回家|初始]]
 </tw-passagedata><tw-passagedata pid="58" name="提酒吧事件2" tags="" position="850,325" size="100,100">你低头看了一眼，刚准备开口时，$tname却不声不响地伸手拿走了盘子里的一块食物，咬了一大口。
 
@@ -1136,10 +1133,14 @@ $tname懒懒地答道，随即向侍者挥了挥手，示意点餐。他身子�
 
 他的脸离你很近，微热的气息在耳边，“下次我们找个更私密的地方吧。”
 
-你下意识地点了点头，他这才满意地直起身，拍了拍你的肩膀，转身向门口走去。“别坐太久了，早点回去休息，”$tname回头看了你一眼，脸上依旧挂着那标志性的笑容，随后迈步离开了酒馆。
+你下意识地点了点头，他这才满意地直起身，拍了拍你的肩膀，转身向门口走去。“别坐太久了，早点回去休息。”
+
+$tname回头看了你一眼，脸上依旧挂着那标志性的笑容，随后迈步离开了酒馆。
 
 酒馆的喧嚣声又重新包围了你，脸似乎又热起来了。
 
+&lt;&lt;set $tnameAffinity +=1&gt;&gt;
+&lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity&lt;/span&gt;
  &lt;&lt;set $minute to $minute + 30&gt;&gt;
 [[回家|初始]]</tw-passagedata><tw-passagedata pid="60" name="泽恩街上事件1" tags="" position="1025,775" size="100,100">“啊，正好碰到你了。”$zname看到你时，露出一贯的温和笑容，目光里闪过一丝愉悦。
 
@@ -1147,7 +1148,9 @@ $tname懒懒地答道，随即向侍者挥了挥手，示意点餐。他身子�
 
 你有些意外：“给我的吗？什么东西？”
 
-“随便挑了些小吃，看到你应该会喜欢的。”他随意地说着，仿佛这只是顺手为之。
+“随便挑了些小吃，看到你应该会喜欢的。”
+
+他随意地说着，仿佛这只是顺手为之。
 
 他递过袋子，里面装着你最喜欢的几样点心，还是新鲜出炉的，散发着诱人的香气。
 
@@ -1161,7 +1164,7 @@ $zname没有回应，只是轻轻勾起嘴角，目光带着些许温柔。
 
 你摇了摇头：“还好，已经习惯了。”
 
-他点了点头，像是没打算继续这个话题，随即转而提议道：“刚好时间还早，要不要去河边走走？那边今天风景不错。”
+他点了点头，没打算继续这个话题，随即转而提议道：“刚好时间还早，要不要去河边走走？那边今天风景不错。”
 
 你愣了一下，心中一阵悸动。
 
@@ -1178,40 +1181,13 @@ $zname平时不太会主动邀约，这让你有些意外。
 
 你们并肩走着，四周弥漫着淡淡的花香，空气中透着初夏的微醺，让人感觉格外放松。
 
-到了河边，你们在一棵大树下坐了下来。
-
-阳光透过树叶洒在你们身上，微风轻轻拂过，带着一丝清凉。
-
-$zname从袋子里拿出刚买的的点心，递给你：“尝尝看，应该还热的。”
-
-你接过点心，正准备道谢，却看到泽恩轻轻伸手，温柔替你拨开了额前被风吹乱的发丝。
-
-他的动作轻柔又自然，仿佛这是他习惯的举动。
-
-你微微一愣，随即默默咬了一口手中的点心，恰到好处的甜味在口中化开。
-
-你抬头看着他，半开玩笑地问道：“那你呢，泽恩？你想要什么？”
-
-$zname笑了笑，目光中带着一丝你熟悉的淡然，但又像是被你突如其来的问题戳中了心事。
-
-他稍微顿了一下，眼神微微一转，带着点调皮，“现在，我想要看你多笑笑。”
-
-他的语气轻松，但眼中却带着些认真。你们相视一笑。
-
-你感觉到$zname的手悄然靠近，轻轻地握住了你的手。
-
-那双手温暖而有力，触感细腻，他没有说话，似乎也不需要任何语言。
-
-你们就这样无言地牵着手，彼此心照不宣地享受着这份安静与亲密。
-
- &lt;&lt;set $minute to $minute + 30&gt;&gt;
-[[回家|初始]]
+[[继续|泽恩街上事件4]]
 
 </tw-passagedata><tw-passagedata pid="63" name="路西恩王宫事件1" tags="" position="1025,650" size="100,100">守卫确认后放行，你踏进了这座金碧辉煌的宫殿。
 
 一路走来，你的心情莫名有些复杂，虽然魔女事件已经解决，但是大王子的威胁依旧存在。
 
-一想到这个，你忍不住握了握拳头。
+想到这里，你忍不住握了握拳头。
 
 转过长廊，你路过熟悉的温室。
 
@@ -1283,7 +1259,64 @@ $lname看到你手腕上闪耀着的红宝石手链，嘴角不自觉地扬起�
 
 不知不觉中你们靠得很近，彼此的呼吸仿佛交织在一起。
 
-“今晚……” 他忽然开口，又顿了一下，目光中带着一丝期待，“能留下来陪我吗？最近事务很繁杂，但我已经尽量处理完了……我只是想和你多待一会儿。”
+[[继续|路西恩王宫事件5]]
+</tw-passagedata><tw-passagedata pid="67" name="训练场2" tags="" position="1075,900" size="100,100">“而且你也能看出自己哪部分还需要改进，这对进步很有帮助。”
+
+他轻轻拍了拍你的肩膀，眼中带着些许肯定，“你做得很好，$playerName。”
+
+虽然有些疲惫，但你依旧掩不住心中的喜悦。
+
+“谢谢团长。今天的训练感觉特别顺利。”
+
+$kname微微一笑，眼神温柔：“如果你想，我可以教你一些新的技巧，下次在训练场上展示给我看。”
+
+他语气中充满信心，“我相信你会很快掌握的。”
+
+你点点头，内心升起一股坚定的力量：“我会尽力的团长。谢谢你百忙之中还来指导我。”
+
+$kname轻轻笑了笑：“看得出，你真的很用心。保持这个状态，进步会很快的。”
+
+他转身，似乎准备离开，“如果有任何问题，随时可以找我。”
+
+&lt;&lt;set $knameAffinity +=1&gt;&gt;&lt;&lt;set $barVisits == &quot;ok&quot;&gt;&gt;
+$kname的好感度增加，现在为：$knameAffinity
+
+你看着他的背影，坚定地握了握手。
+&lt;&lt;set $day +=1&gt;&gt;&lt;&lt;set $minute to 30 &gt;&gt;
+[[回家|初始]] </tw-passagedata><tw-passagedata pid="68" name="泽恩街上事件4" tags="" position="1400,775" size="100,100">到了河边，你们在一棵大树下坐了下来。
+
+阳光透过树叶洒在你们身上，微风轻轻拂过，带着一丝清凉。
+
+$zname从袋子里拿出刚买的的点心，递给你：“尝尝看，应该还热的。”
+
+你接过点心，正准备道谢，却看到泽恩轻轻伸手，温柔替你拨开了额前被风吹乱的发丝。
+
+他的动作轻柔又自然，仿佛这是他习惯的举动。
+
+你微微一愣，随即默默咬了一口手中的点心，恰到好处的甜味在口中化开。
+
+你抬头看着他，半开玩笑地问道：“那你呢，泽恩？你有想要的东西吗？”
+
+[[继续|泽恩街上事件5]]</tw-passagedata><tw-passagedata pid="69" name="泽恩街上事件5" tags="" position="1525,775" size="100,100">$zname笑了笑，目光中带着一丝你熟悉的淡然，但又像是被你突如其来的问题戳中了心事。
+
+他稍微顿了一下，眼神微微一转，带着点调皮，“现在，我想要看你多笑笑。”
+
+他的语气轻松，但眼中却带着些认真。
+
+你们相视一笑。
+
+你感觉到$zname的手悄然靠近，轻轻地握住了你的手。
+
+那双手温暖而有力，触感细腻，他没有说话，似乎也不需要任何语言。
+
+你们就这样无言地牵着手，彼此心照不宣地享受着这份安静与亲密。
+
+&lt;&lt;set $znameAffinity +=1&gt;&gt;
+&lt;span class=&quot;italic-pink-text&quot;&gt;$zname的好感度增加，现在为：$znameAffinity &lt;/span&gt;
+
+ &lt;&lt;set $minute to $minute + 30&gt;&gt;&lt;&lt;set $day +=1&gt;&gt;
+[[回家|初始]]
+</tw-passagedata><tw-passagedata pid="70" name="路西恩王宫事件5" tags="" position="1525,650" size="100,100">“今晚……” 他忽然开口，又顿了一下，目光中带着一丝期待，“能留下来陪我吗？最近事务很繁杂，但我已经尽量处理完了……我只是想和你多待一会儿。”
 
 他的眼眸微微发颤，话语带着小心翼翼的期待与紧张，像是在害怕你会拒绝。
 
@@ -1292,7 +1325,12 @@ $lname看到你手腕上闪耀着的红宝石手链，嘴角不自觉地扬起�
 $lname的神情瞬间松弛下来，他轻轻牵起你的手，眼中带着难得的安心：“谢谢你。”
 
 夕阳的余晖洒满房间，你们的身影在光影中交织，温柔又静谧。
- &lt;&lt;set $minute to $day + 1&gt;&gt;&lt;&lt;set $minute to 30 &gt;&gt;
+
+&lt;&lt;set $lnameAffinity +=1&gt;&gt;
+&lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
+ &lt;&lt;set $minute to $minute + 30&gt;&gt;
+
+ &lt;&lt;set $day to $day + 1&gt;&gt;&lt;&lt;set $minute to 30 &gt;&gt;
 [[过了一夜|初始]]</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
