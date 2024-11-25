@@ -179,7 +179,12 @@ tw-story {
     color: pink; /* 粉色 */
     font-style: italic; /* 斜体 */
   }
-</style></style><script role="script" id="twine-user-script" type="text/twine-javascript">// 1. 使用 predisplay 保存返回的 passage 名称
+.blue-italic {
+  color: lightblue;
+  font-style: italic;
+}
+</style>
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">// 1. 使用 predisplay 保存返回的 passage 名称
 predisplay["Menu Return"] = function (taskName) {
     // 检查当前 passage 是否包含 "noreturn" 标签
     if (!tags().includes("noreturn")) {
@@ -342,13 +347,19 @@ Macro.add('speech', {
 在路上，大家询问你更喜欢迪士尼乐园还是迪士尼海洋。
 
 一番思索后，你回答：
-[[迪士尼乐园|迪士尼乐园]]
-[[迪士尼海洋|迪士尼海洋]]
+&lt;&lt;link &quot;迪士尼乐园&quot;&gt;&gt; 
+&lt;&lt;set $tnameAffinity += 1&gt;&gt;  &lt;&lt;set $znameAffinity +=  1&gt;&gt;&lt;&lt;set $knameAffinity+=  1&gt;&gt;&lt;&lt;goto &quot;迪士尼乐园&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;迪士尼海洋&quot;&gt;&gt; 
+&lt;&lt;set $lnameAffinity += 1&gt;&gt;  &lt;&lt;goto &quot;迪士尼海洋&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+
+[[或许你暂时还不想去？|初始]]
 
 &lt;&lt;set $knameAffinity to 0&gt;&gt;  
 &lt;&lt;set $tnameAffinity to 0&gt;&gt;  
 &lt;&lt;set $lnameAffinity to 0&gt;&gt;   
-&lt;&lt;set $znameAffinity to 0&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="王宫" tags="" position="900,650" size="100,100">&lt;&lt;set $randEncounter = random(1, 2)&gt;&gt; 
+&lt;&lt;set $znameAffinity to 0&gt;&gt;
+
+</tw-passagedata><tw-passagedata pid="6" name="王宫" tags="" position="900,650" size="100,100">&lt;&lt;set $randEncounter = random(1, 2)&gt;&gt; 
 &lt;&lt;if $randEncounter == 1&gt;&gt;
 你走向王宫时，周围的戒备依然森严。
 
@@ -378,10 +389,10 @@ Macro.add('speech', {
 &lt;&lt;set $think to 10&gt;&gt; 智力初始为10
 
  好感度 
-&lt;&lt;set $knameAffinity to 0&gt;&gt; 克莱奥斯的初始好感度为 0
-&lt;&lt;set $tnameAffinity to 0&gt;&gt; 提瑞尔的初始好感度为 0
-&lt;&lt;set $lnameAffinity to 0&gt;&gt; 路西恩的初始好感度为 0
-&lt;&lt;set $znameAffinity to 0&gt;&gt; 泽恩的初始好感度为 0
+&lt;&lt;set $knameAffinity = 0&gt;&gt; 克莱奥斯的初始好感度为 0
+&lt;&lt;set $tnameAffinity = 0&gt;&gt; 提瑞尔的初始好感度为 0
+&lt;&lt;set $lnameAffinity = 0&gt;&gt; 路西恩的初始好感度为 0
+&lt;&lt;set $znameAffinity = 0&gt;&gt; 泽恩的初始好感度为 0
 
 地点判定
 &lt;&lt;set $barVisits =&quot;wu&quot;&gt;&gt;克酒吧事件未开启 &lt;&lt;print $barVisits&gt;&gt;
@@ -419,10 +430,7 @@ Macro.add('speech', {
 
 &lt;&lt;set $state=50&gt;&gt; 个人状态</tw-passagedata><tw-passagedata pid="8" name="迪士尼乐园" tags="" position="600,1050" size="100,100">当然是迪士尼乐园！里面有许多经典的迪士尼角色，是梦幻场景的游乐园。
 $tname, $zname, $kname似乎对这里格外感兴趣。
-
-&lt;&lt;set $tnameAffinity+= 1&gt;&gt;  
-&lt;&lt;set $znameAffinity +=  1&gt;&gt;
-&lt;&lt;set $knameAffinity+=  1&gt;&gt;
+ 
 &lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 &lt;span class=&quot;italic-pink-text&quot;&gt;$zname的好感度增加，现在为：$znameAffinity &lt;/span&gt;
 &lt;span class=&quot;italic-pink-text&quot;&gt;$kname的好感度增加，现在为：$knameAffinity &lt;/span&gt;
@@ -431,7 +439,7 @@ $tname, $zname, $kname似乎对这里格外感兴趣。
 </tw-passagedata><tw-passagedata pid="9" name="迪士尼海洋" tags="" position="750,1050" size="100,100">谁不喜欢迪士尼海洋呢？以海洋为主题，能水上冒险探索神秘的海洋世界。  
 $lname 似乎对这里格外感兴趣。
 
-&lt;&lt;set $lnameAffinity +=  1&gt;&gt;  
+
 &lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 
@@ -439,29 +447,28 @@ $lname 似乎对这里格外感兴趣。
 一番激烈的争论（并不）后，他们希望由你来选择将谁的规划作为旅途的开始。
 
 你选择：
-[[提瑞尔|更刺激的路线]] 
-[[路西恩|更休闲的路线]]</tw-passagedata><tw-passagedata pid="11" name="更刺激的路线" tags="" position="875,1400" size="100,100">你赞同了$tname的提议！$tname挑了挑眉，看起来很高兴：“我就知道红发有品位。当然由我来吧，至少不会让你们迷路。”他斜着眼瞥了你们一眼，双手交叉在胸前，仿佛这是理所当然的事。
+[[提瑞尔（更刺激的路线）][$tnameAffinity+=  1]]  
+[[路西恩（更休闲的路线）][$lnameAffinity+=  1]]</tw-passagedata><tw-passagedata pid="11" name="提瑞尔（更刺激的路线）" tags="" position="875,1400" size="100,100">你赞同了$tname的提议！$tname挑了挑眉，看起来很高兴：“我就知道红发有品位。当然由我来吧，至少不会让你们迷路。”他斜着眼瞥了你们一眼，双手交叉在胸前，仿佛这是理所当然的事。
 
-&lt;&lt;set $tnameAffinity +=  1&gt;&gt;  
 &lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 
  $tname决定带你去最刺激的游乐设施。接下来你们决定要去：
  
- [[惊魂古塔]]  &lt;&lt;set $facility is &quot;惊魂古塔&quot;&gt;&gt;
- [[地心探险之旅]] &lt;&lt;set $facility is &quot;地心探险之旅&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="更休闲的路线" tags="" position="600,1400" size="100,100">你赞同了$lname的提议！$lname很高兴，兴奋地向你讲解接下来的路线规划。
+ [[惊魂古塔][$tnameAffinity+=  1]] 
+ [[地心探险之旅][$znameAffinity+=  1]] </tw-passagedata><tw-passagedata pid="12" name="路西恩（更休闲的路线）" tags="" position="600,1400" size="100,100">你赞同了$lname的提议！$lname很高兴，兴奋地向你讲解接下来的路线规划。
 $lname温和地说：“我们可以悠闲地逛逛，不必着急。”他挠了挠后脑勺，略显害羞，眼神却始终带着关怀。
-&lt;&lt;set $lnameAffinity+=  1&gt;&gt;  
+ 
 &lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 $lname提议选择一些轻松的项目作为开始。接下来你们决定要去：
 
- [[米奇的魔法音乐世界]]  
+ [[米奇的魔法音乐世界][$lnameAffinity+=  1]]  
  [[西部小火车]]</tw-passagedata><tw-passagedata pid="13" name="米奇的魔法音乐世界" tags="" position="500,1525" size="100,100">&lt;&lt;set $facility to &quot;米奇的魔法音乐世界&quot;&gt;&gt;
 &lt;&lt;if $facility == &quot;米奇的魔法音乐世界&quot; and $lnameAffinity ==2 &gt;&gt;
     $lname的脸上绽放出温暖的微笑：“这个地方真的很特别，能跟你一起体验真好。”他的声音温柔而轻松，透着满满的喜悦。
 &lt;&lt;/if&gt;&gt;
 
-你和$lname玩得十分开心。  &lt;&lt;set $lnameAffinity +=  1&gt;&gt;
+你和$lname玩得十分开心。 
 &lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="14" name="西部小火车" tags="" position="650,1525" size="100,100">&lt;&lt;set $facility to &quot;西部小火车&quot;&gt;&gt;
@@ -474,7 +481,7 @@ $lname提议选择一些轻松的项目作为开始。接下来你们决定要�
 在乘坐过程中，在旁边的他毫无保留地笑出声，完全沉浸在刺激中，甚至在你惊呼的时候，他会笑得更加兴奋：“看吧，这才是乐趣！” 
 
 &lt;&lt;/if&gt;&gt;
-$tname玩得十分开心。你心有余悸。  &lt;&lt;set $tnameAffinity += 1&gt;&gt;
+$tname玩得十分开心。你心有余悸。 
 &lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="16" name="地心探险之旅" tags="" position="950,1525" size="100,100">&lt;&lt;set $facility to &quot;惊魂古塔&quot;&gt;&gt;
@@ -484,16 +491,16 @@ $zname站在地心探险之旅前，嘴角微微扬起，充满了对未知的�
 在地心探险之旅的每个起伏中，$zname都保持冷静，偶尔转头看看你，确保你没事。“没事吧？”他说道，语气中透着对你的关心。
 &lt;&lt;/if&gt;&gt;
 
-$zname和你玩得十分开心。  &lt;&lt;set $znameAffinity +=  1&gt;&gt;
+$zname和你玩得十分开心。 
 &lt;span class=&quot;italic-pink-text&quot;&gt;$zname的好感度增加，现在为：$znameAffinity &lt;/span&gt;
 
 [[到了午餐时间！|午餐]] </tw-passagedata><tw-passagedata pid="17" name="午餐" tags="" position="775,1725" size="100,100">尽情游玩过后总是让人感到饥饿，是时候去吃点东西了。
 
 你选择：
-[[去高级餐厅|去高级餐厅]]
-[[去可丽饼店|去可丽饼店]]
+[[高级餐厅][$knameAffinity +=  1]]
+[[可丽饼店|可丽饼店]]
 
-</tw-passagedata><tw-passagedata pid="18" name="去高级餐厅" tags="" position="625,1775" size="100,100">&lt;&lt;set $lunch to &quot;高级餐厅&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="18" name="高级餐厅" tags="" position="625,1775" size="100,100">&lt;&lt;set $lunch to &quot;高级餐厅&quot;&gt;&gt;
 &lt;&lt;if $lunch ==  &quot;高级餐厅&quot; and $knameAffinity ==1 &gt;&gt;
 $kname微笑着走向高级餐厅，优雅地为你拉开椅子。
 “你应该尝试一下这里的特色料理，它们都是选用最顶级的食材。”
@@ -501,22 +508,27 @@ $kname微笑着走向高级餐厅，优雅地为你拉开椅子。
 &lt;&lt;/if&gt;&gt;
 
 $kname优雅地解释着每道菜的风味，仿佛这顿饭是一次优雅的艺术享受。
-你享用了美味的一餐。  &lt;&lt;set $knameAffinity +=  1&gt;&gt;
+你享用了美味的一餐。  
 
 &lt;span class=&quot;italic-pink-text&quot;&gt;$kname的好感度增加，现在为：$knameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="19" name="结尾" tags="" position="375,2050" size="100,100">游乐园之旅总是让人开心！还剩下一点时间，你想和谁一起度过？
 
-&lt;&lt;if $tnameAffinity &gt;= 4&gt;&gt;
-[[提瑞尔|提瑞尔]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $lnameAffinity &gt;= 4 &gt;&gt;
-[[路西恩|路西恩]] &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $znameAffinity &gt;= 3&gt;&gt;
-[[泽恩|泽恩]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $knameAffinity &gt;= 3&gt;&gt;
+&lt;&lt;if $tnameAffinity &gt;= 3&gt;&gt;
+[[提瑞尔|提瑞尔]]
+&lt;&lt;else&gt;&gt;$tname&lt;span class=&quot;blue-italic&quot;&gt;好感度3结局开启。&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $lnameAffinity &gt;= 3 &gt;&gt;
+[[路西恩|路西恩]] 
+&lt;&lt;else&gt;&gt;$lname&lt;span class=&quot;blue-italic&quot;&gt;好感度3结局开启。&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $znameAffinity &gt;= 2&gt;&gt;
+[[泽恩|泽恩]]
+&lt;&lt;else&gt;&gt;$zname&lt;span class=&quot;blue-italic&quot;&gt;好感度2结局开启。&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $knameAffinity &gt;= 2&gt;&gt;
 [[克莱奥斯|克莱奥斯]]
-&lt;&lt;/if&gt;&gt;
-[[还是回家吧|初始]]
+&lt;&lt;else&gt;&gt;$kname&lt;span class=&quot;blue-italic&quot;&gt;好感度2结局开启。&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+
+
+[[还是回家吧|出去玩]]
 </tw-passagedata><tw-passagedata pid="20" name="提瑞尔" tags="" position="125,1150" size="100,100">在一天的游玩接近尾声时，$tname突然停下脚步，用一种略带嘲讽的语气说：&quot;要不要去试试那个&#39;浪漫&#39;的旋转木马？&quot;
 
 你有些惊讶地看着他。
@@ -542,9 +554,10 @@ $tname望向你，微微侧头，用那种介于讽刺和真诚之间的语气�
 他嘴角挂着那抹标志性的从容笑意，仿佛刚才说出的邀约不过是再普通不过的对话。
 
 &lt;&lt;linkreplace &quot;好。&quot; &gt;&gt; 
+
 END：$tname
-&lt;&lt;link &quot;回家吧&quot;&gt;&gt; &lt;&lt;set $hour = 8&gt;&gt;&lt;&lt;set $minute = 0&gt;&gt;&lt;&lt;set $day += 1&gt;&gt;&lt;&lt;goto &quot;初始&quot;&gt;&gt;
-&lt;&lt;/link&gt;&gt;
+
+[[重新开始|出去玩]]
 &lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="21" name="克莱奥斯" tags="" position="0,1175" size="100,100">夜晚的迪士尼乐园依旧灯火辉煌，而你和$kname则回到了他为你精心挑选的豪华套房。
 
 远处的摩天轮闪烁着柔和的灯光。
@@ -571,10 +584,11 @@ $kname似乎察觉到你的感受，温柔地将一条柔软的毯子轻轻披�
 
 夜色愈发浓厚，窗外的摩天轮依然闪烁，而你们的心却在此刻紧紧相连。
 
-&lt;&lt;linkreplace &quot;我也是。&quot; &gt;&gt; 
+&lt;&lt;linkreplace &quot;好。&quot; &gt;&gt; 
+
 END：$kname
-&lt;&lt;link &quot;回家吧&quot;&gt;&gt; &lt;&lt;set $hour = 8&gt;&gt;&lt;&lt;set $minute = 0&gt;&gt;&lt;&lt;set $day += 1&gt;&gt;&lt;&lt;goto &quot;初始&quot;&gt;&gt;
-&lt;&lt;/link&gt;&gt;
+
+[[重新开始|出去玩]]
 &lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="22" name="路西恩" tags="" position="350,1125" size="100,100">一天就要结束了，$lname带着你走向迪士尼的玩偶店。
 
 店里五彩缤纷的玩偶摆满了货架，每一个角落都充满了梦幻的气息。
@@ -607,10 +621,12 @@ $lname在这柔和的灯光下显得更加温暖，帽子的影子映在他的�
 
 在那宁静的夜晚，他的声音如同微风，带着温柔的感情流入你心中。
 
+
 &lt;&lt;linkreplace &quot;我也是。&quot; &gt;&gt; 
+
 END：$lname
-&lt;&lt;link &quot;回家吧&quot;&gt;&gt; &lt;&lt;set $hour = 8&gt;&gt;&lt;&lt;set $minute = 0&gt;&gt;&lt;&lt;set $day += 1&gt;&gt;&lt;&lt;goto &quot;初始&quot;&gt;&gt;
-&lt;&lt;/link&gt;&gt;
+
+[[重新开始|出去玩]]
 &lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="23" name="泽恩" tags="" position="250,1150" size="100,100">在游行的最后，$zname和你找了一个理想的观景点，准备观看夜间的游行。
 
 他微微调整了自己的位置，确保你能看到游行中最精彩的部分。
@@ -641,14 +657,17 @@ $zname静静地陪伴着你，目光始终柔和而温暖。
 
 他缓缓靠近，额头轻轻触碰着你。
 
-“虽然我不会为你做特别的事情，但无论你想去哪里，我都会带你去。”
+“虽然我可能为你做不到特别的事情，但无论你想去哪里，我都会带你去。”
 
 他的眼神中闪烁着不容置疑的坚定，游行中的所有灯光都无法比拟。
 
+
 &lt;&lt;linkreplace &quot;好。&quot; &gt;&gt; 
-&lt;&lt;link &quot;回家吧&quot;&gt;&gt; &lt;&lt;set $hour = 8&gt;&gt;&lt;&lt;set $minute = 0&gt;&gt;&lt;&lt;set $day += 1&gt;&gt;&lt;&lt;goto &quot;初始&quot;&gt;&gt;
-&lt;&lt;/link&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="24" name="去可丽饼店" tags="" position="900,1850" size="100,100">可丽饼店的食品种类意外很丰盛！菜单上有各种可丽饼选择。大家开始讨论自己想吃的口味。
+
+END：$zname
+
+[[重新开始|出去玩]]
+&lt;&lt;/linkreplace&gt;&gt; </tw-passagedata><tw-passagedata pid="24" name="可丽饼店" tags="" position="900,1850" size="100,100">可丽饼店的食品种类意外很丰盛！菜单上有各种可丽饼选择。大家开始讨论自己想吃的口味。
 
 你打算：
 [[看看菜单（随机事件/一定机率判定）|菜单]]
@@ -742,14 +761,14 @@ $tname看了看你的可丽饼，把头探过来咬了一口。
  
  “和我想的一样美味。”他意犹未尽地舔了一下嘴唇。
  
- &lt;&lt;set $tnameAffinity +=  1&gt;&gt;
+
 &lt;span class=&quot;italic-pink-text&quot;&gt;$tname的好感度增加，现在为：$tnameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="33" name="特大号" tags="" position="775,2000" size="100,100">&quot; 特大号的可丽饼确实吃起来很过瘾吧！“
 
 $zname捧着和你手里一样巨大的可丽饼对着你笑道。
 
-&lt;&lt;set $znameAffinity+=  1&gt;&gt;
+
 &lt;span class=&quot;italic-pink-text&quot;&gt;$zname的好感度增加，现在为：$znameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="34" name="草莓和生奶油搭配可爱的薄饼" tags="" position="750,1900" size="100,100">你选择了草莓和生奶油搭配的可丽饼，真是太美味了！
@@ -757,7 +776,7 @@ $zname捧着和你手里一样巨大的可丽饼对着你笑道。
 $lname看起来很高兴。
 他的手里拿着和你一样口味的可丽饼，饼面上还有可爱的米奇图案。 
 
-&lt;&lt;set $lnameAffinity+=  1&gt;&gt;
+
 &lt;span class=&quot;italic-pink-text&quot;&gt;$lname的好感度增加，现在为：$lnameAffinity &lt;/span&gt;
 
 [[用餐结束|结尾]]</tw-passagedata><tw-passagedata pid="35" name="睡觉" tags="" position="525,625" size="100,100">&lt;&lt;set $day +=1&gt;&gt;
@@ -819,7 +838,7 @@ $lname看起来很高兴。
     &lt;td colspan=&quot;2&quot;&gt;提示3：同一时间段因为随机性可能特殊事件不会出现。&lt;/td&gt;
     &lt;/tr&gt;
      &lt;tr&gt;
-    &lt;td colspan=&quot;2&quot;&gt;提示4：当隐藏地点出现时，由于不知名bug的存档可能导致好感度丢失建议提前存档。&lt;/td&gt;
+    &lt;td colspan=&quot;2&quot;&gt;提示4：当隐藏地点出现时，由于不知名bug的存档可能导致好感度丢失建议提前存档。&lt;span class=&quot;blue-italic&quot;&gt;11/25更新：修改了隐藏地点事件结束后的地点，设置重新开始地点直接从隐藏地点开始。同时隐藏地点默认好感度从零开始。&lt;/span&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
     &lt;td colspan=&quot;2&quot;&gt;提示5：酒吧的深夜或许会遇到某件事情的后续？&lt;/td&gt;
@@ -852,22 +871,23 @@ $kname抬眼，对上你的视线，嘴角浮现一丝若有若无的笑：微�
 &quot;要尝尝吗？&quot;他自然地邀请，声线平稳，仿佛方才的一切不过是再寻常不过的选择。
 
 &lt;&lt;linkreplace &quot;咬一口。&quot; &gt;&gt; 
- &lt;&lt;set $knameAffinity +=  1&gt;&gt;
+
 &lt;span class=&quot;italic-pink-text&quot;&gt;$kname的好感度增加，现在为：$knameAffinity &lt;/span&gt;
+
 [[用餐结束|结尾]]
 &lt;&lt;/linkreplace&gt;&gt; 
 
 </tw-passagedata><tw-passagedata pid="40" name="菜单" tags="" position="1000,1975" size="100,100">&lt;&lt;set _suiji to random(1,10)&gt;&gt;
 &lt;&lt;if _suiji &lt;= 4&gt;&gt;  
 
-[[草莓和生奶油搭配可爱的薄饼|草莓和生奶油搭配可爱的薄饼]] 
-[[黑糖&amp;抹茶&amp;鲜奶油|黑糖&amp;抹茶&amp;鲜奶油]]
-[[特大号|特大号]] 
+[[草莓和生奶油搭配可爱的薄饼][$lnameAffinity +=  1]] 
+[[黑糖&amp;抹茶&amp;鲜奶油][$tnameAffinity +=  1]]
+[[特大号][$znameAffinity +=  1]] 
 
  &lt;&lt;else&gt;&gt;
 你发现克莱奥斯的神情似乎有些不对劲。
 &lt;&lt;linkreplace &quot;继续&quot; &gt;&gt; 
-[[他的隐藏一面？]]
+[[他的隐藏一面？][$knameAffinity +=  1]]
 &lt;&lt;/linkreplace&gt;&gt; 
 
 &lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="41" name="开始" tags="" position="500,750" size="100,100">欢迎。
